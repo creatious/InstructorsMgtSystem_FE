@@ -26,7 +26,7 @@ const Courses = () => {
                     {Courses.map((course, index) => {
                         return (
                             <tr key={index}>
-                                <td>{course.Course_Title}</td>
+                                <td><Link to={`/courseinstructors/${course.ID}`}>{course.Course_Title}</Link></td>
                                 <td>{course.Course_Description}</td>
                             </tr>
                         )

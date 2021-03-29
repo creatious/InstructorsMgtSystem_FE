@@ -3,11 +3,11 @@ import { Link } from "react-router-dom"
 import { getCourseInstructors } from "../services/instructorCourse"
 
 const CourseInstructors = (props) => {
-    const [courseinstructors, setcourseinstructors] = useState({})
-
+    const [courseInstructors, setCourseInstructors] = useState([])
+    console.log(props.match.params.id)
     useEffect(() => {
         getCourseInstructors(props.match.params.id)
-            .then(courseinstructors => setcourseinstructors(courseinstructors.response[0]))
+            .then(records => setCourseInstructors(records))
             .catch(error => console.log(error))
     }, [])
 
@@ -15,9 +15,26 @@ const CourseInstructors = (props) => {
 
     return (
         <div>
-            <div>First Name: {courseinstructors.First_Name}</div>
-            <div>Last Name: {courseinstructors.Last_Name}</div>
-            <Link to="/instructorscourses">Back to Instructors</Link>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Title</th>
+                        <th>Instructor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {courseInstructors.map((courseInstructor, index) => {
+                        return (
+                            <tr key={index}>
+                                <td>{courseInstructor.Course_Title}</td>
+                                <td>{courseInstructor.First_Name}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+            <Link to="/courses">Back to Menu</Link>
+
         </div>
     )
 }
