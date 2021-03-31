@@ -4,7 +4,6 @@ import { getCourseInstructors } from "../services/instructorCourse"
 
 const CourseInstructors = (props) => {
     const [courseInstructors, setCourseInstructors] = useState([])
-    console.log(props.match.params.id)
     useEffect(() => {
         getCourseInstructors(props.match.params.id)
             .then(records => setCourseInstructors(records))
@@ -15,11 +14,12 @@ const CourseInstructors = (props) => {
 
     return (
         <div>
+            <h2>Course and Designated Instructors</h2>
             <table>
                 <thead>
                     <tr>
-                        <th>Course Title</th>
-                        <th>Instructor</th>
+                        <th>Course_Title</th>
+                        <th>Instructor Name</th>
                     </tr>
                 </thead>
                 <tbody>

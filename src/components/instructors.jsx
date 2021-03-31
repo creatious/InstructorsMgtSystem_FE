@@ -19,8 +19,8 @@ const Instructors = () => {
                     <tr>
                         <th>First name</th>
                         <th>last name</th>
-                        <th>Phone number</th>
-                        <th>Email</th>
+                        {/* <th>Phone number</th>
+                        <th>Email</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -28,9 +28,10 @@ const Instructors = () => {
                         return (
                             <tr key={index}>
                                 <td><Link to={`/instructor/${instructor.ID}`}>{instructor.First_Name}</Link></td>
-                                <td>{instructor.Last_Name}</td>
+                                <td><Link to={`/instructor/${instructor.ID}`}>{instructor.Last_Name}</Link></td>
+                                {/* <td>{instructor.Last_Name}</td>
                                 <td>{instructor.Phone_Number}</td>
-                                <td>{instructor.Email}</td>
+                                <td>{instructor.Email}</td> */}
                             </tr>
                         )
                     })}

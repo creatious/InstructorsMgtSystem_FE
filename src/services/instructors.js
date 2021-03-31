@@ -13,7 +13,7 @@ export const getInstructors = () => {
 export const getInstructor = (id) => {
   return new Promise((resolve, reject) => {
     api
-      .get("/instructor/"+id)
+      .get("/instructors/"+id)
       .then(response => resolve(response.data))
       .catch(error => reject(error))
   })
